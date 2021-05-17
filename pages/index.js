@@ -11,12 +11,11 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          At<a href="https://nextjs.org">React!</a>
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          A New Way to Send & Receive Feedback
         </p>
 
         <div className={styles.grid}>
@@ -45,7 +44,7 @@ export default function Home() {
             <h3>Deploy &rarr;</h3>
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>``
+            </p>
           </a>
         </div>
       </main>
