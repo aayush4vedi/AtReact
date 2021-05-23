@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>At React</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -24,7 +24,13 @@ const Home = () => {
           A New Way to Send & Receive Feedback
         </p>
         {/* //this '?.' is kind of ternary opertor provided by NextJS */}
-        <div>user: {auth?.user}</div>
+        <div>Current user: {auth.user ? auth.user.email : 'None'}</div>
+
+        {auth.user ? (
+          <button onClick={(e) => auth.signout()}>Sign Out</button>
+        ) : (
+          <button onClick={(e) => auth.signinWithGitHub()}>Sign In</button>
+        )}
       </main>
 
       <footer className={styles.footer}>
