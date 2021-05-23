@@ -14,6 +14,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <button onClick={(e) => auth.signinWithGithub()}>Sing In</button>
       <main className={styles.main}>
         <h1 className={styles.title}>
           At<a href="https://nextjs.org">React!</a>
@@ -23,7 +24,7 @@ const Home = () => {
           A New Way to Send & Receive Feedback
         </p>
         {/* //this '?.' is kind of ternary opertor provided by NextJS */}
-        <div>Current user: <Code>{auth.user ? auth.user.email : 'None'}</Code></div>
+        <div>Current user: {auth.user ? auth.user.email : 'None'}</div>
 
         {auth.user ? (
           <button onClick={(e) => auth.signout()}>Sign Out</button>
