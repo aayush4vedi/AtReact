@@ -7,7 +7,10 @@ const globalStyles = {
       'html, body': {
         fontSize: 'sm',
         color: props.colorMode === 'dark' ? 'white' : 'gray.600',
-        lineHeight: 'tall',
+        lineHeight: 'tall'
+      },
+      '#__next': {
+        minH: '100vh'
       },
       a: {
         color: props.colorMode === 'dark' ? 'teal.300' : 'teal.500'
