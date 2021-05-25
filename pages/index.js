@@ -1,33 +1,42 @@
 import Head from 'next/head';
-import { Button, Text, Heading, Code } from '@chakra-ui/react';
+import { Button, Text, Heading, Code, Icon, Flex } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
+import { FastFeedbackIcon } from '../styles/icons';
 
 const Home = () => {
   //use auth hook created
   const auth = useAuth();
 
   return (
-    <div className="container">
+    <Flex
+      as="main"
+      direction="column"
+      align="center"
+      justify="center"
+      h="100vh"
+    >
       <Head>
-        <title>At React</title>
+        <title>Fast Feedback</title>
       </Head>
 
-      <main>
-        <Heading fontWeight="medium">AtReact!</Heading> 
+      <Icon as={FastFeedbackIcon} w={12} h={12} color="black" />
 
-        {/* //this '?.' is kind of ternary opertor provided by NextJS */}
-        <Text>
-          Current user: <Code> {auth.user ? auth.user.email : 'None'} </Code>
-        </Text>
+      {/* NOTE: hack to avoid auth*/}
+      <Button as="a" href="/dashboard">
+        View Dashboard
+      </Button>
 
-        {auth.user ? (
-          <Button onClick={(e) => auth.signout()}>Sign Out</Button>
-        ) : (
-          <Button onClick={(e) => auth.signinWithGitHub()}>Sign In</Button>
-        )}
-      </main>
-    </div>
+      {auth.user ? (
+        <Button as="a" href="/dashboard">
+          View Dashboard
+        </Button>
+      ) : (
+        <Button mt={4} size="sm" onClick={(e) => auth.signinWithGitHub()}>
+          Sign In
+        </Button>
+      )}
+    </Flex>
   );
 };
 
