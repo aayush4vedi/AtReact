@@ -17,21 +17,24 @@ const Home = () => {
       h="100vh"
     >
       <Head>
-        <title>At React</title>
+        <title>Fast Feedback</title>
       </Head>
 
-      {/* <Heading>AtReact!</Heading> */}
       <Icon as={FastFeedbackIcon} w={12} h={12} color="black" />
 
-      {/* //this '?.' is kind of ternary opertor provided by NextJS */}
-      {/* <Text>
-        Current user: <Code> {auth.user ? auth.user.email : 'None'} </Code>
-      </Text> */}
+      {/* NOTE: hack to avoid auth*/}
+      <Button as="a" href="/dashboard">
+        View Dashboard
+      </Button>
 
       {auth.user ? (
-        <Button onClick={(e) => auth.signout()} mt={4} size="sm">Sign Out</Button>
+        <Button as="a" href="/dashboard">
+          View Dashboard
+        </Button>
       ) : (
-        <Button onClick={(e) => auth.signinWithGitHub()} mt={4} size="sm">Sign In</Button>
+        <Button mt={4} size="sm" onClick={(e) => auth.signinWithGitHub()}>
+          Sign In
+        </Button>
       )}
     </Flex>
   );

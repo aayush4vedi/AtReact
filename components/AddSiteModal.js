@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-// import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import {
   Modal,
   ModalOverlay,
@@ -15,17 +15,17 @@ import {
   useDisclosure
 } from '@chakra-ui/react';
 
-// import { createSite } from '@/lib/db';
+import { createSite } from '@/lib/db';
 
 const AddSiteModal = () => {
   const initialRef = useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
-//   const { handleSubmit, register } = useForm();
+  const { handleSubmit, register } = useForm();
 
-//   const onCreateSite = (values) => {
-//     createSite(values);
-//     onClose();
-//   };
+  const onCreateSite = (values) => {
+    createSite(values);
+    onClose();
+  };
 
   return (
     <>
@@ -34,32 +34,31 @@ const AddSiteModal = () => {
       </Button>
       <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        {/* <ModalContent as="form" onSubmit={handleSubmit(onCreateSite)}> */}
-        <ModalContent as="form">
+        <ModalContent as="form" onSubmit={handleSubmit(onCreateSite)}>
           <ModalHeader fontWeight="bold">Add Site</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Name</FormLabel>
-              {/* <Input
+              <Input
                 ref={initialRef}
                 placeholder="My site"
                 name="site"
-                ref={register({
-                  required: 'Required'
-                })}
-              /> */}
+                // ref={register({
+                //   required: 'Required'
+                // })}
+              />
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel>Link</FormLabel>
-              {/* <Input
+              <Input
                 placeholder="https://website.com"
                 name="url"
-                ref={register({
-                  required: 'Required'
-                })}
-              /> */}
+                // ref={register({
+                //   required: 'Required'
+                // })}
+              />
             </FormControl>
           </ModalBody>
 
