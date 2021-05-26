@@ -41,6 +41,7 @@ const AddSiteModal = ({ children }) => {
       duration: 5000,
       isClosable: true
     });
+    //post the site on firestore & update cache on dashboard in a snip
     mutate(
       '/api/sites',
       async (data) => {

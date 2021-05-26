@@ -23,8 +23,8 @@ const Home = () => {
       <Icon as={FastFeedbackIcon} w={12} h={12} color="black" />
 
       {/* NOTE: hack to avoid auth*/}
-      <Button as="a" href="/dashboard">
-        View Dashboard
+      <Button as="a" href="/dashboard_hack">
+        View Dashboard(Hack)
       </Button>
 
       {auth.user ? (
