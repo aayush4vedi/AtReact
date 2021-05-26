@@ -30,7 +30,7 @@ const Home = () => {
       {auth.user ? (
         <Button as="a" href="/dashboard">
           View Dashboard
-        </Button>
+        </Button>  
       ) : (
         <Button mt={4} size="sm" onClick={(e) => auth.signinWithGitHub()}>
           Sign In
