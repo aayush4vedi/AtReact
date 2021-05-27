@@ -7,8 +7,8 @@ import DashboardShell from '../components/DashboardShell';
 import fetcher from '@/utils/fetcher';
 
 const Dashboard = () => {
-  const auth = useAuth();
-  const { data } = useSWR('/api/sites', fetcher);
+  const { user } = useAuth();
+  const { data } = useSWR(user ? ['/api/sites', user.token] : null, fetcher);   //redirect to user if already signed in
 
   //   if (!auth.user) {
   //     return 'Loading...';   #TODO: do redirecting

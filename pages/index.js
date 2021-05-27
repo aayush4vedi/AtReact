@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Button, Text, Heading, Code, Icon, Flex } from '@chakra-ui/react';
+import { Button, Text, Heading, Code, Icon, Flex, Link } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
 import { FastFeedbackIcon } from '../styles/icons';
@@ -15,12 +15,24 @@ const Home = () => {
       align="center"
       justify="center"
       h="100vh"
+      maxW="400px"
+      margin="0 auto"
     >
       <Head>
+        {/* impp */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (document.cookie && document.cookie.includes('fast-feedback-auth')) {
+                window.location.href = "/dashboard"
+              }
+            `
+          }}
+        />
         <title>Fast Feedback</title>
       </Head>
 
-      <Icon as={FastFeedbackIcon} w={12} h={12} color="black" />
+      <Icon as={FastFeedbackIcon} w={12} h={12} color="black" mb={2} />
 
       {/* NOTE: hack to avoid auth*/}
       <Button as="a" href="/dashboard_hack">
