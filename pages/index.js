@@ -111,7 +111,7 @@ import Feedback from '@/components/Feedback';
 import FeedbackLink from '@/components/FeedbackLink';
 import { FastFeedbackIcon, GoogleIcon, GithubIcon } from '@/styles/icons';
 
-const SITE_ID = 'yjIaQj1mKtVKqUnU9tb3';
+const SITE_ID = 'yjIaQj1mKtVKqUnU9tb3';  //@leerob's site
 
 export async function getStaticProps(context) {
   const { feedback } = await getAllFeedback(SITE_ID);
@@ -158,10 +158,11 @@ const Home = ({ allFeedback }) => {
             </Link>
             {`. It's the easiest way to add comments or reviews to your static site. It's still a work-in-progress, but you can try it out by logging in.`}
           </Text>
+
           {/* NOTE: hack to avoid auth*/}
-          {/* <Button as="a" href="/dashboard_hack" mb="4">
+          <Button as="a" href="/dashboard_hack" mb="4" variant="outline">
             View Dashboard(Hack)
-          </Button> */}
+          </Button>
 
           {auth.user ? (
             <Button
