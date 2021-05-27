@@ -43,7 +43,7 @@ const AddSiteModal = ({ children }) => {
     });
     //post the site on firestore & update cache on dashboard in a snip
     mutate(
-      '/api/sites',
+      ['/api/sites', auth.user.token],
       async (data) => {
         return { sites: [...data.sites, newSite] };
       },
