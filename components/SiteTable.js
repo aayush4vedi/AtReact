@@ -20,7 +20,9 @@ const SiteTable = ({ sites }) => {
           <Box as="tr" key={site.url}>
             <Td fontWeight="medium">{site.name}</Td>
             <Td>
-              <Link>View Feedback</Link>
+              <Link color="blue.500" fontWeight="medium">
+                View Feedback
+              </Link>
               <Link href={site.url} isExternal>
                 {site.url}
               </Link>
