@@ -13,11 +13,12 @@ const SiteTable = ({ sites }) => {
           <Th>Feedback Link</Th>
           <Th>Date Added</Th>
           <Th>{''}</Th>
+          <Th width="50px">{''}</Th>
         </Tr>
       </thead>
       <tbody>
         {sites.map((site) => (
-          <Box as="tr" key={site.url}>
+          <Box as="tr" key={site.id}>
             <Td fontWeight="medium">{site.name}</Td>
             <Td>
               <Link color="blue.500" fontWeight="medium">

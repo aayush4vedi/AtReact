@@ -5,11 +5,16 @@ import NextLink from 'next/link';
 import { useAuth } from '@/lib/auth';
 
 const DashboardShell = ({ children }) => {
-  const { user, signout } = useAuth();
+  const { user } = useAuth();
 
   return (
     <Box backgroundColor="gray.100" h="100vh">
-      <Flex backgroundColor="white" mb={16} w="full">
+      <Flex
+        backgroundColor="white"
+        mb={16}
+        w="full"
+        borderTop="5px solid #0AF5F4"
+      >
         <Flex
           alignItems="center"
           justifyContent="space-between"
@@ -19,11 +24,12 @@ const DashboardShell = ({ children }) => {
           margin="0 auto"
           w="full"
           px={8}
+          h="70px"
         >
           <Flex align="center">
             <NextLink href="/" passHref>
               <Link>
-              <Icon name="logo" size="24px" mr={8} />
+                <Icon name="logo" size="24px" mr={8} />
               </Link>
             </NextLink>
             <NextLink href="/dashboard" passHref>
@@ -35,13 +41,12 @@ const DashboardShell = ({ children }) => {
           </Flex>
           <Flex justifyContent="center" alignItems="center">
             {user && (
-              <Button variant="ghost" mr={2} onClick={() => signout()}>
-                Log Out
-              </Button>
+              <NextLink href="/account" passHref>
+                <Button as="a" variant="ghost" mr={2}>
+                  Account
+                </Button>
+              </NextLink>
             )}
-            <Button variant="ghost" mr={2} onClick={() => signout()}>
-              {user ? 'Log Out' : 'Sign In'}
-            </Button>
             <Avatar size="sm" src={user?.photoUrl} />
           </Flex>
         </Flex>
