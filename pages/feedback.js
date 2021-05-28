@@ -2,7 +2,7 @@ import useSWR from 'swr';
 
 import { useAuth } from '@/lib/auth';
 import fetcher from '@/utils/fetcher';
-import EmptyState from '@/components/EmptyState';
+import Page from '@/components/Page';
 import DashboardShell from '@/components/DashboardShell';
 import FeedbackTable from '@/components/FeedbackTable';
 import FeedbackTableHeader from '@/components/FeedbackTableHeader';
@@ -27,10 +27,16 @@ const MyFeedback = () => {
       {data.feedback.length ? (
         <FeedbackTable feedback={data.feedback} />
       ) : (
-        <EmptyState />
+        <FeedbackEmptyState />
       )}
     </DashboardShell>
   );
 };
 
-export default MyFeedback;
+const MyFeedbackPage = () => (
+  <Page name="My Feedback" path="/feedback">
+    <MyFeedback />
+  </Page>
+);
+
+export default MyFeedbackPage;
